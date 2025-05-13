@@ -10,9 +10,9 @@
                     <div class="bg-green-500 text-white p-2 rounded-lg">
                         📱
                     </div>
-                    <a href="https://wa.me/{{ str_replace(' ', '', $kontak->value) }}" class="text-blue-900 hover:underline">
+                    <a href="https://wa.me/{{ preg_replace('/^0/', '62', str_replace(' ', '', $kontak->value)) }}" class="text-blue-900 hover:underline">
                         {{ $kontak->value }}
-                    </a>
+                    </a>                    
                 @elseif ($kontak->name == 'Instagram')
                     <div class="bg-pink-500 text-white p-2 rounded-lg">
                         📷

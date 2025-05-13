@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="https://kit.fontawesome.com/YOUR_FA_KIT_CODE.js" crossorigin="anonymous"></script>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center font-poppins" style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
+<body class="min-h-screen flex flex-col items-center justify-center font-poppins bg-gradient-to-br from-indigo-100 via-white to-purple-100 text-gray-800">
 
     <div class="stars"></div>
     <div class="moon"></div>

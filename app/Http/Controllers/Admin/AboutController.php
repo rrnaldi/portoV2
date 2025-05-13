@@ -34,46 +34,47 @@ class AboutController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    // Validasi input
-    $request->validate([
-        'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048', // Pastikan hanya file gambar yang diterima
-        'name' => 'required|string|max:255',
-        'skill' => 'required|string|max:255',
-        'deskripsi' => 'required|string',
-    ]);
-
-    // Proses upload gambar
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-
-        // Inisialisasi ImageManager dengan driver GD
-        $manager = new ImageManager(new Driver());
-
-        // Proses gambar ke format WebP (menggunakan encoder baru)
-        $imageResized = $manager->read($image)->encode(new WebpEncoder(100));
-
-        // Buat nama file baru dengan ekstensi webp
-        $imageName = time() . '.webp';
-        $imagePath = 'abouts/' . $imageName;
-
-        // Simpan ke storage
-        Storage::disk('public')->put($imagePath, (string) $imageResized);
-    } else {
+    {
+        // Validasi input
+        $request->validate([
+            'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            'cv' => 'nullable|mimes:pdf|max:2048', // Validasi file PDF
+            'name' => 'required|string|max:255',
+            'skill' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+        ]);
+    
+        // Proses upload gambar
         $imagePath = null;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $manager = new ImageManager(new Driver());
+            $imageResized = $manager->read($image)->encode(new WebpEncoder(100));
+            $imageName = time() . '.webp';
+            $imagePath = 'abouts/' . $imageName;
+            Storage::disk('public')->put($imagePath, (string) $imageResized);
+        }
+    
+        // Proses upload CV PDF
+        if ($request->hasFile('cv')) {
+            $cv = $request->file('cv');
+            $cvName = time() . '_' . $cv->getClientOriginalName();
+            $cv->move(public_path('cv'), $cvName); // ⬅️ Ini simpan di public/cv
+            $cvPath = 'cv/' . $cvName;
+        }
+        
+    
+        // Simpan data ke database
+        About::create([
+            'image' => $imagePath,
+            'cv' => $cvPath, // pastikan kolom ini ada di tabel
+            'name' => $request->name,
+            'skill' => $request->skill,
+            'deskripsi' => $request->deskripsi,
+        ]);
+    
+        return redirect()->route('abouts.index')->with('success', 'Data Berhasil Dibuat.');
     }
-
-    // Simpan data ke database
-    About::create([
-        'image' => $imagePath,
-        'name' => $request->name,
-        'skill' => $request->skill,
-        'deskripsi' => $request->deskripsi,
-    ]);
-
-    // Redirect dengan pesan sukses
-    return redirect()->route('abouts.index')->with('success', 'Data Berhasil Dibuat.');
-}
     
 
 

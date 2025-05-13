@@ -20,6 +20,7 @@
                     <th class="px-4 py-2 border">Name</th>
                     <th class="px-4 py-2 border">Skill</th>
                     <th class="px-4 py-2 border">Description</th>
+                    <th class="px-4 py-2 border">CV</th>
                     <th class="px-4 py-2 border">Actions</th>
                 </tr>
             </thead>
@@ -32,6 +33,7 @@
                     <td class="border px-4 py-2">{{ $about->name }}</td>
                     <td class="border px-4 py-2">{{ $about->skill }}</td>
                     <td class="border px-4 py-2">{{ $about->deskripsi }}</td>
+                    <td class="border px-4 py-2">{{ $about->cv }}</td>
                     <td class="border px-4 py-2 text-center">
                         <div class="flex items-center justify-center gap-2">
                             <a href="{{ route('abouts.edit', $about->id) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-md shadow">

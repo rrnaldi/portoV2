@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container mx-auto px-6 py-12 mt-6" x-data="{ show: false }" x-init="setTimeout(() => show = true, 300)">
+    @if ($about)
     <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
         <!-- Bagian Gambar -->
         <div class="w-full md:w-1/3 flex justify-center"
@@ -25,9 +26,15 @@
             <p class="text-navy mt-4 leading-relaxed text-left">
                 {{ $about->deskripsi }}
             </p>
+            @if($about->cv)
+            <a href="{{ asset($about->cv) }}"  class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">Download CV</a>
+            @endif
         </div>
     </div>
+    @else
+    <div class="text-center py-12 text-red-600 text-lg">
+        <p><strong>Konten About Belum Di Isi.</strong></p>
+    </div>
+    @endif
 </div>
-
-
 @endsection

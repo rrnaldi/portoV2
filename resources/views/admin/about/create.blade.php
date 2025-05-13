@@ -31,6 +31,11 @@
             <textarea name="deskripsi" class="border border-gray-300 rounded-md p-2 w-full" rows="4" required></textarea>
         </div>
 
+        <div>
+            <label class="block font-medium text-gray-700">CV</label>
+            <input type="file" name="cv" accept="application/pdf" class="border border-gray-300 rounded-md p-2 w-full">
+        </div>
+
         <!-- Tombol Submit -->
         <div class="mt-4">
             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg shadow">
