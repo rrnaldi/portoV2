@@ -48,4 +48,18 @@ class PageController extends Controller
         return view('user.contact', compact('contact'));
         
     }
+
+    public function landing()
+{
+    
+    return view('user2.landing', [
+        'about' => About::first(),
+        'projects' => Project::all(),
+        'experiences' => Experience::all(),
+        'certificates' => Certificate::all(),
+        'educations' => Education::all(),
+        'contact' => Contact::all(),
+    ]);
+}
+
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg" data-aos="zoom-in" data-aos-delay="1000">
-    <h1 class="text-2xl font-bold mb-6 text-center">Contact</h1>
+    <h1 class="text-2xl font-bold mb-6 text-center">Hubungi Saya</h1>
     <div class="space-y-4">
         @foreach ($contact as $kontak)
             <div class="flex items-center space-x-4 bg-gray-100 p-3 rounded-lg">
