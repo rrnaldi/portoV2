@@ -44,5 +44,11 @@
                 Experience
             </a>
         </li>
+        <li class="mb-2">
+            <a href="{{ route('skills.index') }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-700 rounded"">
+                <x-heroicon-o-shield-check class="w-5 h-5 text-white" /> <!-- Heroicon Home -->
+                Skills
+            </a>
+        </li>
     </ul>
 </div>

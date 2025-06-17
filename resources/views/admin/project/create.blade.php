@@ -23,6 +23,11 @@
             <label class="block font-medium text-gray-700">Description</label>
             <textarea name="deskripsi" class="border border-gray-300 rounded-md p-2 w-full" rows="4" required></textarea>
         </div>
+        <!-- Github Url -->
+        <div>
+            <label class="block font-medium text-gray-700">Github Url</label>
+            <textarea name="github_url" class="border border-gray-300 rounded-md p-2 w-full" rows="4" required></textarea>
+        </div>
 
         <!-- Tombol Submit -->
         <div class="mt-4">

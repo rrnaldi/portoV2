@@ -17,6 +17,10 @@
     
         <label class="block mt-4">Description</label>
         <textarea name="deskripsi" class="rounded-md border p-2 w-full">{{ $project->deskripsi }}</textarea>
+
+         <!-- Github Url -->
+        <label class="block">Github Url</label>
+        <input type="text" name="github_url" class="rounded-md border p-2 w-full" value="{{ $project->github_url }}">
     
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 mt-4 rounded">Update</button>
     </form>

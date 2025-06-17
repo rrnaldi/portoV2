@@ -42,6 +42,8 @@ class ProjectController extends Controller
             'name' => 'required|string|max:255',
             'imgprojek' => 'required|image|mimes:jpg,jpeg,png,gif,svg',
             'deskripsi' => 'required|string',
+            'github_url' => 'required|string',
+            
         ]);
     
         // Proses upload gambar
@@ -70,6 +72,7 @@ class ProjectController extends Controller
             'imgprojek' => $imagePath,
             'name' => $request->name,
             'deskripsi' => $request->deskripsi,
+            'github_url' => $request->github_url,
         ]);
     
         // Redirect dengan pesan sukses
@@ -103,12 +106,14 @@ class ProjectController extends Controller
     $request->validate([
         'name' => 'required|string|max:255',
         'deskripsi' => 'required|string',
+        'github_url' => 'required|string',
         'imgprojek' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:6000'
     ]);
 
     // Update data teks
     $project->name = $request->name;
     $project->deskripsi = $request->deskripsi;
+    $project->github_url = $request->github_url;
 
     // Handle file upload jika ada
     if ($request->hasFile('imgprojek')) {

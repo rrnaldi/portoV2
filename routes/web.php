@@ -7,6 +7,7 @@ use App\Http\Controllers\UAboutController;
 use App\Http\Controllers\UProjectController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\SkillController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\EducationController;
@@ -14,14 +15,7 @@ use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\CertificateController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/project', [PageController::class, 'project'])->name('project');
-Route::get('/experience', [PageController::class, 'experience'])->name('experience');
-Route::get('/certificate', [PageController::class, 'certificate'])->name('certificate');
-Route::get('/education', [PageController::class, 'education'])->name('education');
-Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-
-Route::get('/landing', [PageController::class, 'landing'])->name('landing');
+Route::get('/', [PageController::class, 'landing'])->name('landing');
 
 
 // Route Login Admin (Tanpa Prefix "admin" Karena Sudah di Prefix Bawah)
@@ -48,6 +42,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('contacts', ContactController::class);
     Route::resource('experiences', ExperienceController::class);
     Route::resource('certificates', CertificateController::class);
+    Route::resource('skills', SkillController::class);
 });
 
 

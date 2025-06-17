@@ -3,45 +3,38 @@
 @section('content')
 
 {{-- Hero Section --}}
-<section id="home" class="relative min-h-screen flex flex-col justify-center items-center bg-[#E6ECF0] text-[#2D3E50] px-6 text-center">
-    
-    {{-- Teks pojok kiri atas --}}
-    <div class="absolute top-4 left-6 text-sm sm:text-base font-semibold text-[#2D3E50]">
-        Portofolio
-    </div>
+<section id="home" class="relative min-h-screen flex flex-col justify-center items-center bg-[#106EBE] text-white px-6 text-center">
+    <div class="absolute top-4 left-6 text-sm font-semibold text-white">Portofolio</div>
+    <div class="absolute top-4 right-6 text-sm font-semibold text-white">2025</div>
 
-    {{-- Teks pojok kanan atas --}}
-    <div class="absolute top-4 right-6 text-sm sm:text-base font-semibold text-[#2D3E50]">
-        2025
-    </div>
-
-    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight">Hello, Saya Renaldi</h1>
-    <p class="text-lg sm:text-xl md:text-2xl mb-6 leading-relaxed">Temukan pengalaman & karya saya di sini</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hello, Saya Renaldi</h1>
+    <p class="text-[#0FFCBE] text-xl md:text-2xl mb-6">Temukan pengalaman & karya saya di sini</p>
 
     @if($about->cv)
-        <a href="{{ asset($about->cv) }}" class="mt-4 inline-block font-semibold bg-[#2D3E50] text-white px-6 py-2 rounded-lg hover:bg-opacity-80 transition">
+        <a href="{{ asset($about->cv) }}" class="mt-4 inline-block font-semibold bg-[#0FFCBE] text-[#106EBE] px-6 py-2 rounded-lg hover:bg-opacity-80 transition">
             My Resume
         </a>
     @endif
 </section>
 
 
+
 {{-- About Section --}}
-<section id="about" class="min-h-screen flex items-center justify-center py-24 bg-[#FFFFFF] text-[#2D3E50]">
+<section id="about" class="min-h-screen flex items-center justify-center py-24 bg-[#FFFFFF]">
     <div class="container mx-auto px-6">
-        <div class="rounded-3xl bg-[#E6ECF0] shadow-2xl p-10 md:px-20">
+        <div class="rounded-3xl bg-[#106EBE] shadow-2xl p-10 md:px-20">
             <div class="grid grid-cols-1 md:grid-cols-[auto,1fr] items-center gap-8 md:gap-x-12">
                 <div class="flex justify-center md:justify-start mb-6 md:mb-0" data-aos="zoom-in">
                     <div class="w-40 h-40 md:w-64 md:h-64">
                         <img src="{{ asset('storage/' . $about->image) }}" alt="{{ $about->name }}"
-                             class="w-full h-full object-cover rounded-full border-8 border-[#E6ECF0] shadow-xl">
+                             class="w-full h-full object-cover rounded-full border-8 border-[#106EBE] shadow-xl">
                     </div>
                 </div>
 
                 <div class="text-center md:text-left" data-aos="fade-left">
-                    <h2 class="text-2xl md:text-4xl font-bold mb-2">{{ $about->name }}</h2>
-                    <h3 class="text-base md:text-xl font-semibold mb-4">{{ $about->skill }}</h3>
-                    <p class="leading-relaxed text-sm md:text-lg">{{ $about->deskripsi }}</p>
+                    <h2 class="text-white text-2xl md:text-4xl font-bold mb-2">{{ $about->name }}</h2>
+                    <h3 class="text-[#0FFCBE] text-base md:text-xl font-semibold mb-4">{{ $about->skill }}</h3>
+                    <p class="text-white leading-relaxed text-sm md:text-lg">{{ $about->deskripsi }}</p>
                 </div>
             </div>
         </div>
@@ -49,15 +42,15 @@
 </section>
 
 {{-- Experience Section --}}
-<section id="experience" class="py-24 bg-[#E6ECF0] text-[#2D3E50]">
+<section id="experience" class="py-24 bg-[#106EBE]">
     <div class="container mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Experience</h2>
+        <h2 class="text-white text-3xl md:text-4xl font-bold text-center mb-12">Experience</h2>
         <div class="space-y-10">
             @foreach ($experiences as $exp)
                 <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 flex flex-col md:flex-row items-center gap-6" data-aos="fade-up">
                     <div class="w-24 h-24 flex-shrink-0">
                         <img src="{{ asset('storage/' . $exp->imgexp) }}" alt="{{ $exp->company }}"
-                             class="w-full h-full object-cover rounded-full border-4 border-[#E6ECF0] shadow-md">
+                             class="w-full h-full object-cover rounded-full border-4 border-[#106EBE] shadow-md">
                     </div>
                     <div class="text-center md:text-left">
                         <h3 class="text-xl font-bold">{{ $exp->company }}</h3>
@@ -72,17 +65,28 @@
 </section>
 
 {{-- Projects Section --}}
-<section id="projects" class="py-24 bg-white text-[#2D3E50]">
+<section id="projects" class="py-24 bg-[#F8FAFC]">
     <div class="container mx-auto px-6">
-        <h2 class="text-5xl md:text-4xl font-bold text-center mb-12">My Projects</h2>
+        <h2 class="text-[#106EBE] text-4xl md:text-5xl font-bold text-center mb-12">My Projects</h2>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             @foreach ($projects as $project)
-                <div class="bg-[#E6ECF0] rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300">
-                    <img src="{{ asset('storage/' . $project->imgprojek) }}" alt="{{ $project->name }}"
-                         class="w-full h-52 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">{{ $project->name }}</h3>
-                        <p class="text-sm text-gray-700">{{ $project->deskripsi }}</p>
+                <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group" data-aos="fade-up">
+                    <div class="overflow-hidden h-52">
+                        <img src="{{ asset('storage/' . $project->imgprojek) }}" alt="{{ $project->name }}"
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="p-6 flex flex-col justify-between h-[200px]">
+                        <div>
+                            <h3 class="text-xl font-bold text-[#106EBE] mb-2">{{ $project->name }}</h3>
+                            <p class="text-sm text-gray-600">{{ $project->deskripsi }}</p>
+                        </div>
+                        <div class="mt-4">
+                            <a href="{{ $project->github_url }}" target="_blank"
+                               class="inline-block px-4 py-2 text-sm font-semibold text-white bg-[#0FFCBE] hover:bg-[#0fcbae] rounded-lg transition">
+                                Lihat Project
+                            </a>
+                        </div>
                     </div>
                 </div>
             @endforeach
@@ -90,50 +94,86 @@
     </div>
 </section>
 
-{{-- Contact Section --}}
-<section id="contact" class="py-24 bg-[#E6ECF0] text-[#2D3E50]">
+
+{{-- Education Section
+<section id="education" class="py-24 bg-[#106EBE]">
     <div class="container mx-auto px-6">
-        <div class="rounded-3xl bg-white shadow-2xl p-10 md:px-20 max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center">Contact</h2>
-            <div class="grid grid-cols-1 gap-6">
-                @foreach ($contact as $kontak)
-                    <div class="flex items-center gap-4 bg-[#E6ECF0] rounded-xl shadow p-4">
-                        @php
-                            $icon = match($kontak->name) {
-                                'WhatsApp' => '📱',
-                                'Instagram' => '📷',
-                                'LinkedIn' => '🔗',
-                                'Email' => '✉️',
-                                default => '🔸'
-                            };
+        <h2 class="text-[#0FFCBE] text-3xl md:text-4xl font-bold text-center mb-12">Education</h2>
 
-                            $link = match($kontak->name) {
-                                'WhatsApp' => 'https://wa.me/' . preg_replace('/^0/', '62', str_replace(' ', '', $kontak->value)),
-                                'Email' => 'mailto:' . $kontak->value,
-                                default => $kontak->value
-                            };
-
-                            $label = match($kontak->name) {
-                                'Instagram', 'LinkedIn' => $kontak->name,
-                                default => $kontak->value
-                            };
-                        @endphp
-
-                        <div class="text-2xl bg-[#2D3E50] text-white rounded-full w-12 h-12 flex items-center justify-center">
-                            {{ $icon }}
-                        </div>
-
-                        <div>
-                            <h4 class="text-lg font-semibold">{{ $kontak->name }}</h4>
-                            <a href="{{ $link }}" target="_blank" class="text-blue-800 hover:underline break-all">
-                                {{ $label }}
-                            </a>
-                        </div>
+        <div class="space-y-10 max-w-4xl mx-auto">
+            @foreach ($educations as $edu)
+                <div class="bg-[#F1F5F9] rounded-xl shadow-md p-6 md:p-8" data-aos="fade-up">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
+                        <h3 class="text-xl font-semibold">{{ $edu->name }}</h3>
+                        <span class="text-sm text-gray-600">
+                            {{ $edu->year }}
+                        </span>
                     </div>
-                @endforeach
-            </div>
+                    <p class="text-gray-700 text-sm">{{ $edu->description }}</p>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section> --}}
+
+{{-- Skills Section --}}
+<section id="skills" class="py-24 bg-[#106EBE]">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">My Skills</h2>
+
+        <div class="max-w-3xl mx-auto space-y-6">
+            @foreach ($skills as $skill)
+                <div data-aos="fade-up" class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-base md:text-lg font-semibold text-white">{{ $skill->name }}</h3>
+                        <span class="text-sm font-medium text-[#0FFCBE]">{{ $skill->percentage }}%</span>
+                    </div>
+
+                    {{-- Progress Bar --}}
+                    <div class="w-full bg-[#E0E0E0] rounded-full h-4 overflow-hidden">
+                        <div class="bg-[#0FFCBE] h-full" style="width: {{ $skill->percentage }}%"></div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>
+
+
+
+{{-- Contact Section --}}
+<section id="contact" class="bg-white rounded-t-[4rem] py-24">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-5xl font-extrabold text-[#106EBE] mb-12">Hubungi Saya</h2>
+
+        <div class="flex flex-wrap justify-center gap-6">
+            @foreach ($contact as $kontak)
+                @php
+                    $link = match($kontak->name) {
+                        'WhatsApp' => 'https://wa.me/' . preg_replace('/^0/', '62', str_replace(' ', '', $kontak->value)),
+                        'Email' => 'mailto:' . $kontak->value,
+                        'LinkedIn' => $kontak->value,
+                        'Instagram' => $kontak->value
+                    };
+
+                    $icon = match($kontak->name) {
+                        'WhatsApp' => 'fa-brands fa-whatsapp',
+                        'Email' => 'fa-solid fa-envelope',
+                        'LinkedIn' => 'fa-brands fa-linkedin',
+                        'Instagram' => 'fa-solid fa-instagram'
+                    };
+                @endphp
+
+                <a href="{{ $link }}" target="_blank"
+                   class="w-16 h-16 flex items-center justify-center border-2 border-[#106EBE] text-[#106EBE] rounded-full text-2xl hover:bg-[#106EBE] hover:text-white transition"
+                   title="{{ $kontak->name }}">
+                    <i class="{{ $icon }}"></i>
+                </a>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+
 
 @endsection

@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Project;
+use App\Models\Skill;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -59,6 +60,7 @@ class PageController extends Controller
         'certificates' => Certificate::all(),
         'educations' => Education::all(),
         'contact' => Contact::all(),
+        'skills' => Skill::all(),
     ]);
 }
 

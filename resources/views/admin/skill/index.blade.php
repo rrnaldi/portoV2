@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container mx-auto px-4">
-    <h1 class="text-3xl font-bold mb-6 text-gray-800">Project</h1>
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">Skills</h1>
 
     <!-- Tombol Tambah -->
     <div class="mb-4">
-        <a href="{{ route('projects.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg shadow">
+        <a href="{{ route('skills.create') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg shadow">
             + Create New
         </a>
     </div>
@@ -17,27 +17,21 @@
             <thead>
                 <tr class="bg-gray-100 text-gray-700">
                     <th class="px-4 py-2 border">Name</th>
-                    <th class="px-4 py-2 border">Image</th>
-                    <th class="px-4 py-2 border">Description</th>
-                    <th class="px-4 py-2 border">Github Url</th>
-                    <th class="px-4 py-2 border">Actions</th>
+                    <th class="px-4 py-2 border">Percentage</th>
+                    <th class="px-4 py-2 border">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($projects as $project)
+                @foreach ($skills as $skill)
                 <tr class="hover:bg-gray-50">
-                    <td class="border px-4 py-2">{{ $project->name }}</td>
-                    <td class="border px-4 py-2 text-center">
-                        <img src="{{ asset('storage/' . $project->imgprojek) }}" class="w-16 h-16 object-cover">
-                    </td>
-                    <td class="border px-4 py-2">{{ $project->deskripsi }}</td>
-                    <td class="border px-4 py-2">{{ $project->github_url}}</td>
+                    <td class="border px-4 py-2">{{ $skill->name }}</td>
+                    <td class="border px-4 py-2">{{ $skill->percentage }}</td>
                     <td class="border px-4 py-2 text-center">
                         <div class="flex items-center justify-center gap-2">
-                            <a href="{{ route('projects.edit', $project->id) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-md shadow">
+                            <a href="{{ route('skills.edit', $skill->id) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-md shadow">
                                 Edit
                             </a>
-                            <form action="{{ route('projects.destroy', $project->id) }}" method="POST" 
+                            <form action="{{ route('skills.destroy', $skill->id) }}" method="POST" 
                                 onsubmit="return confirm('Are you sure?')" class="inline-flex m-0 p-0">
                                 @csrf
                                 @method('DELETE')
